@@ -22,9 +22,6 @@ data2$Área <- factor(data2$Área, levels = c("Urbana", "Rural", "Ignorado"), la
 #cambio Jornada
 data2$Jornada_Est <- factor(data2$Jornada_Est, levels = c("Matutina", "Vespertina", "Noturna", "Doble", "Internmedia", "Sin jornada"), labels = c(1, 2, 3, 4, 5, 9))
 
-#cambio Jornada
-data2$Resultado_F <- factor(data2$Resultado_F, levels = c("Matutina", "Vespertina", "Noturna", "Doble", "Internmedia", "Sin jornada"), labels = c(1, 2, 3, 4, 5, 9))
-
 #cambio Resultado Final
 data2$Resultado_F <- factor(data2$Resultado_F, levels = c("Promovido", "Vigente", "Retirado por traslado", "Retirado definitivo", "No promovido", "Ignorado"), labels = c(1, 2, 3, 4, 5, 9))
 
@@ -784,3 +781,20 @@ municipios <- c("Guatemala",
 
 # Filtrar registros excluidos
 registros_excluidos <- data2 %>% filter(Depto_mupio %in%)
+
+
+
+
+
+################ reglas #######################
+
+install.packages("arules")
+
+library("arules")
+
+
+#apriori
+
+reglas <- apriori(data2, parameter = list(support=0.2, confidence=0.5 ))
+
+data2 <- subset(data2, select = -Año)
