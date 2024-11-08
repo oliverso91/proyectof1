@@ -802,3 +802,11 @@ data2 <- subset(data2, select = -Año)
 inspect(reglas[100:200])
 
 reglasframe <- as(reglas, "data.frame")
+
+
+################# Reglas de asociación FP-Growth ############
+
+reglasFP <- apriori(data2, parameter = list(supp = 0.2, conf = 0.8, target = "rules"))
+summary(rules)
+
+reglasframeFP <- as(reglasFP, "data.frame")
