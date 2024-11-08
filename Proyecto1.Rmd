@@ -798,3 +798,7 @@ library("arules")
 reglas <- apriori(data2, parameter = list(support=0.2, confidence=0.5 ))
 
 data2 <- subset(data2, select = -Año)
+
+inspect(reglas[100:200])
+
+reglasframe <- as(reglas, "data.frame")
