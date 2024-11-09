@@ -1,4 +1,11 @@
 # proyectof1
+
+#descarga de DATOS
+ir a la URL: https://www.ine.gob.gt/educacion/
+-seleccionar base de datos en el menu laterla
+-seleccionar anio 2023 y periodo anual
+-descargar la base de datos con extenison sav, Llamada: Base de educación formal
+
 # Instalar el paquete foreign si no lo tienes
 install.packages("foreign")
 
@@ -7,7 +14,8 @@ library(foreign)
 
 # Leer el archivo .sav
 
-data2 <- read.spss("/Users/oliverrodas/Downloads/20240522235219ITIf0Taxw7mbshQNenoLw9A9K5cR4pMt.sav", to.data.frame = TRUE)
+-----se debe cambiar la ruta segun donde este descargado el archivo con extension .sav
+data2 <- read.spss("/Users/oliverrodas/Documents/maestria/2024/MINERIA DE DATOS/proyecto1/baseformal2023.sav", to.data.frame = TRUE)
 
 #cambio para sexo
 data2$Sexo <- factor(data2$Sexo, levels = c("Hombre", "Mujer"), labels = c(1, 2))
@@ -152,3 +160,4 @@ ggplot(datamsc2, aes(x = Pueblo_Per, y = Nivel, color = as.factor(cluster$cluste
 
 
 
+#se debe utilizar el archivo excel diccionario educacion formal 2023 para comparar las reglas
