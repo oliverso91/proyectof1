@@ -1,7 +1,7 @@
 # proyectof1
 
 #descarga de DATOS
-ir a la URL: https://www.ine.gob.gt/educacion/
+ir a la URL: https://www.ine.gob.gt/educacion/ \n
 -seleccionar base de datos en el menu laterla
 -seleccionar anio 2023 y periodo anual
 -descargar la base de datos con extenison sav, Llamada: Base de educación formal
@@ -15,6 +15,7 @@ library(foreign)
 # Leer el archivo .sav
 
 -----se debe cambiar la ruta segun donde este descargado el archivo con extension .sav
+
 data2 <- read.spss("/Users/oliverrodas/Documents/maestria/2024/MINERIA DE DATOS/proyecto1/baseformal2023.sav", to.data.frame = TRUE)
 
 #cambio para sexo
