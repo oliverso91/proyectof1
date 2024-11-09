@@ -5,8 +5,6 @@ install.packages("foreign")
 library(foreign)
 
 # Leer el archivo .sav
-data <- read.spss("/Users/oliverrodas/Downloads/20240522235420xWnoL8XOFWtEdaj6FS3AtmzgpEXyVyB8.sav", to.data.frame = TRUE)
-
 
 data2 <- read.spss("/Users/oliverrodas/Downloads/20240522235219ITIf0Taxw7mbshQNenoLw9A9K5cR4pMt.sav", to.data.frame = TRUE)
 
@@ -806,7 +804,15 @@ reglasframe <- as(reglas, "data.frame")
 
 ################# Reglas de asociación FP-Growth ############
 
-reglasFP <- apriori(data2, parameter = list(supp = 0.2, conf = 0.8, target = "rules"))
+dataFP2 <- data2[, c(2,3,4,5,6,7,8,9,10,11,12,13,14)]
+
+
+
+reglasFP <- apriori(data2, parameter = list(supp = 0.2, conf = 0.6, target = "rules"))
 summary(rules)
 
 reglasframeFP <- as(reglasFP, "data.frame")
+
+dataFP2 <- data.frame(dataFP2)
+
+dataFP2D <- subset(dataFP2, Departamento_F == 22)
